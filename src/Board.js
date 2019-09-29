@@ -1,8 +1,29 @@
 import React, { Component } from 'react';
 import Cell from './Cell';
+import './Board.css';
 import { Howl, Howler } from 'howler';
 import mus from './audio/mus/lights_out_mus_v1.mp3';
-import './Board.css';
+import soundFx from './audio/fx/fx.mp3';
+
+// Tentar chamar o fx como url e nao pelo import. Ex: './audio/fx/lights_out_fx_01.mp3'
+
+const music = new Howl({
+  src: [mus]
+});
+
+//Setup holwer audio sprite
+const fx = new Howl({
+  src: [soundFx],
+  sprite: {
+    fx_01: [0, 2351.814058956916],
+    fx_02: [4000, 2473.083900226758],
+    fx_03: [8000, 2184.1269841269836],
+    fx_04: [12000, 2350.385487528344],
+    fx_05: [16000, 2231.1564625850338],
+    fx_06: [20000, 2345.192743764173],
+    fx_07: [24000, 2149.7278911564626]
+  }
+});
 
 class Board extends Component {
   static defaultProps = {
@@ -21,7 +42,6 @@ class Board extends Component {
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
   createBoard() {
     let board = [];
-
     for (let y = 0; y < this.props.nrows; y++) {
       let row = [];
       for (let x = 0; x < this.props.ncols; x++) {
@@ -38,18 +58,16 @@ class Board extends Component {
   flipCellsAround(coord) {
     let { ncols, nrows } = this.props;
     let board = this.state.board;
-    let [y, x] = coord.split('-').map(Number);
+    let [y, x] = coord.split('-').map(Number); //.map(Number)?
 
-    const sound = new Howl({
-      src: [mus]
-    });
-
+    // FX
+    // fx.play();
+    // this.props.fx.play();
+    // console.log(this.props.fx.state());
     function flipCell(y, x) {
       // if this coord is actually on board, flip it
-
       if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
         board[y][x] = !board[y][x];
-        sound.play();
       }
     }
     //Flip cells
@@ -59,8 +77,25 @@ class Board extends Component {
     flipCell(y - 1, x); // flip below
     flipCell(y + 1, x); // flip above
 
-    // win when every cell is turned off
+    //Get Randon sound fx
+    function getRandomFx() {
+      const fxArray = [
+        'fx_01',
+        'fx_02',
+        'fx_03',
+        'fx_04',
+        'fx_05',
+        'fx_06',
+        'fx_07'
+      ];
 
+      var randomFx = fxArray[Math.floor(Math.random() * fxArray.length)];
+
+      return randomFx;
+    }
+
+    fx.play(getRandomFx());
+    // win when every cell is turned off
     let hasWon = board.every(row => row.every(cell => !cell));
 
     this.setState({ board, hasWon });
@@ -70,6 +105,7 @@ class Board extends Component {
 
   render() {
     // Win message
+    // music.play();
     if (this.state.hasWon) {
       return (
         <div className="Board-title">
