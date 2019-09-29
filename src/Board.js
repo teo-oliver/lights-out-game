@@ -5,8 +5,6 @@ import { Howl, Howler } from 'howler';
 import mus from './audio/mus/lights_out_mus_v1.mp3';
 import soundFx from './audio/fx/fx.mp3';
 
-// Tentar chamar o fx como url e nao pelo import. Ex: './audio/fx/lights_out_fx_01.mp3'
-
 const music = new Howl({
   src: [mus]
 });
@@ -40,6 +38,7 @@ class Board extends Component {
   }
 
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
+
   createBoard() {
     let board = [];
     for (let y = 0; y < this.props.nrows; y++) {
@@ -60,10 +59,6 @@ class Board extends Component {
     let board = this.state.board;
     let [y, x] = coord.split('-').map(Number); //.map(Number)?
 
-    // FX
-    // fx.play();
-    // this.props.fx.play();
-    // console.log(this.props.fx.state());
     function flipCell(y, x) {
       // if this coord is actually on board, flip it
       if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
@@ -90,11 +85,11 @@ class Board extends Component {
       ];
 
       var randomFx = fxArray[Math.floor(Math.random() * fxArray.length)];
-
       return randomFx;
     }
 
     fx.play(getRandomFx());
+
     // win when every cell is turned off
     let hasWon = board.every(row => row.every(cell => !cell));
 
@@ -136,12 +131,16 @@ class Board extends Component {
     return (
       <div>
         <div className="Board-title">
-          <div className="neon-orange">Lights</div>
-          <div className="neon-blue">Out</div>
+          <div className="container">
+            <div className="neon-orange">Lights</div>
+            <div className="neon-blue">Out</div>
+          </div>
         </div>
-        <table className="Board">
-          <tbody>{tblBoard}</tbody>
-        </table>
+        <div className="">
+          <table className="Board">
+            <tbody>{tblBoard}</tbody>
+          </table>
+        </div>
       </div>
     );
   }
