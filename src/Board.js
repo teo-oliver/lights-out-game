@@ -77,7 +77,7 @@ class Board extends Component {
     flipCell(y - 1, x); // flip below
     flipCell(y + 1, x); // flip above
 
-    //Get Randon sound fx
+    //Get Random Sound Effects
     function getRandomFx() {
       const fxArray = [
         'fx_01',
