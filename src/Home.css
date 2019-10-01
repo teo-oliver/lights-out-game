@@ -1,11 +1,11 @@
 .Home {
+  margin-top: 5rem;
   display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
   align-items: center;
-  justify-content: center;
-}
-
-.title {
-  position: relative;
+  justify-items: center;
+  height: 100vh;
 }
 
 .neon-teal-animated {
@@ -60,9 +60,10 @@
 }
 
 .start-game {
-  display: block;
+  position: relative;
+  top: -100px;
   font-family: neon;
-  width: 200px;
+  width: fit-content;
   font-weight: bold;
   color: white;
   border: 0 none;

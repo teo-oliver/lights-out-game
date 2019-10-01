@@ -8,7 +8,7 @@ import soundFx from './audio/fx/fx.mp3';
 // Setup howler music object
 const music = new Howl({
   src: [mus],
-  volume: 0.5,
+  volume: 0.8,
   // html5: true,
   loop: true
   // html5

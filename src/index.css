@@ -15,4 +15,5 @@ body {
   padding-top: 50px;
   color: white;
   text-align: center;
+  overflow: hidden;
 }
