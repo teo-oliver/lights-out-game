@@ -2,14 +2,19 @@ import React, { Component } from 'react';
 import Cell from './Cell';
 import './Board.css';
 import { Howl, Howler } from 'howler';
-import mus from './audio/mus/lights_out_mus_v1.mp3';
+import mus from './audio/mus/lights_out_mus_v2.mp3';
 import soundFx from './audio/fx/fx.mp3';
 
+// Setup howler music object
 const music = new Howl({
-  src: [mus]
+  src: [mus],
+  volume: 0.5,
+  // html5: true,
+  loop: true
+  // html5
 });
 
-//Setup holwer audio sprite
+//Setup howler audio sprite
 const fx = new Howl({
   src: [soundFx],
   sprite: {
@@ -35,6 +40,14 @@ class Board extends Component {
       hasWon: false,
       board: this.createBoard()
     };
+  }
+
+  componentDidMount() {
+    music.play();
+  }
+
+  componentWillUnmount() {
+    music.stop();
   }
 
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
@@ -100,7 +113,7 @@ class Board extends Component {
 
   render() {
     // Win message
-    // music.play();
+
     if (this.state.hasWon) {
       return (
         <div className="Board-title">
@@ -131,12 +144,12 @@ class Board extends Component {
     return (
       <div>
         <div className="Board-title">
-          <div className="container">
-            <div className="neon-orange">Lights</div>
+          <div className="flex">
+            <div className="neon-teal">Lights</div>
             <div className="neon-blue">Out</div>
           </div>
         </div>
-        <div className="">
+        <div>
           <table className="Board">
             <tbody>{tblBoard}</tbody>
           </table>
