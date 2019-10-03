@@ -1,7 +1,21 @@
 .App {
   /* text-align: center;
-
   align-items: center;
   justify-content: center; */
   height: 100vh;
+}
+
+.page {
+  height: 100vh;
+  position: fixed;
+  width: 100vh;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 900ms ease-out;
 }
