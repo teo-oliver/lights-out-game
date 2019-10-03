@@ -10,9 +10,9 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 class App extends Component {
   render() {
     return (
-      <Route
-        render={({ location }) => (
-          <div className="App">
+      <div className="App">
+        <Route
+          render={({ location }) => (
             <TransitionGroup>
               <CSSTransition
                 key={location.key}
@@ -20,31 +20,15 @@ class App extends Component {
                 timeout={1000}
               >
                 <Switch location={location}>
-                  <Route
-                    exact
-                    path="/"
-                    render={() => (
-                      <div className="page">
-                        <Home />
-                      </div>
-                    )}
-                  />
+                  <Route exact path="/" render={() => <Home />} />
 
-                  <Route
-                    exact
-                    path="/board"
-                    render={() => (
-                      <div className="page">
-                        <Board />
-                      </div>
-                    )}
-                  />
+                  <Route exact path="/board" render={() => <Board />} />
                 </Switch>
               </CSSTransition>
             </TransitionGroup>
-          </div>
-        )}
-      />
+          )}
+        />
+      </div>
     );
   }
 }
