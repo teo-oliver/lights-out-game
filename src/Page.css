@@ -2,17 +2,17 @@
   position: fixed;
   height: 100%;
   width: 100%;
-  transition: opacity 800ms ease-in-out;
+  transition: transform 800ms ease-in-out;
 }
 
 .page-enter {
-  opacity: 0;
+  transform: translateX(100%);
 }
 
 .page-enter-active {
-  opacity: 1;
+  transform: translateX(0);
 }
 
 .page-exit-active {
-  opacity: 0;
+  transform: translateX(-100%);
 }
