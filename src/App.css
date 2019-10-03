@@ -5,7 +5,7 @@
   height: 100vh;
 }
 
-.fade-enter {
+/* .fade-enter {
   opacity: 0;
 }
 
@@ -21,4 +21,4 @@
 .fade-exit-active {
   opacity: 0;
   transition: opacity 1000ms ease-out;
-}
+} */
