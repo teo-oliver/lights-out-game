@@ -8,7 +8,7 @@ import soundFx from './audio/fx/fx.mp3';
 // Setup howler music object
 const music = new Howl({
   src: [mus],
-  volume: 0.8,
+  volume: 0,
   // html5: true,
   loop: true
   // html5
@@ -44,10 +44,14 @@ class Board extends Component {
 
   componentDidMount() {
     music.play();
+    music.fade(0.0, 0.8, 3000);
   }
 
   componentWillUnmount() {
-    music.stop();
+    music.fade(1, 0, 4000);
+    setTimeout(() => {
+      music.stop();
+    }, 4000);
   }
 
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
