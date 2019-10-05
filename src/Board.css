@@ -1,5 +1,5 @@
 .Board {
-  min-width: 500px;
+  min-width: 200px;
   position: relative;
   box-sizing: border-box;
   display: inline-block;
@@ -58,4 +58,49 @@ table tr:last-child td:last-child {
 .winner .neon-blue,
 .winner .neon-teal {
   font-size: 20vw;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 768px) {
+  .neon-teal {
+    font-size: 40px;
+    line-height: 9vw;
+  }
+
+  .neon-blue {
+    font-size: 40px;
+    line-height: 9vw;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .neon-teal {
+    font-size: 60px;
+    line-height: 9vw;
+  }
+
+  .neon-blue {
+    font-size: 60px;
+    line-height: 9vw;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .neon-teal {
+    font-family: neon;
+    color: #00bcd4;
+    font-size: 80px;
+    line-height: 9vw;
+    text-shadow: 0 0 3vw #00bcd4;
+  }
+
+  .neon-blue {
+    font-family: neon;
+    color: #426dfb;
+    font-size: 80px;
+    line-height: 9vw;
+    text-shadow: 0 0 3vw #2356ff;
+  }
 }

@@ -9,3 +9,31 @@
 .Cell-lit {
   background-color: #00bcd4;
 }
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 768px) {
+  .Cell {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .Cell {
+    height: 80px;
+    width: 80px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .Cell {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+/* @media (min-width: 1200px) {
+} */
