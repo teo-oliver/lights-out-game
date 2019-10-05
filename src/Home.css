@@ -78,3 +78,57 @@
 .start-game:focus {
   box-shadow: 0 0 0 2px white, 0 0 0 3px #27ae60;
 }
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 768px) {
+  .neon-teal-animated {
+    font-size: 40px;
+    line-height: 9vw;
+  }
+
+  .neon-blue-animated {
+    font-size: 40px;
+    line-height: 9vw;
+  }
+  .start-game {
+    font-size: 1.2rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .neon-teal-animated {
+    font-size: 60px;
+    line-height: 9vw;
+  }
+
+  .neon-blue-animated {
+    font-size: 60px;
+    line-height: 9vw;
+  }
+  .start-game {
+    font-size: 1.5rem;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .neon-teal-animated {
+    font-family: neon;
+    color: #00bcd4;
+    font-size: 80px;
+    line-height: 9vw;
+    text-shadow: 0 0 3vw #00bcd4;
+  }
+
+  .neon-blue-animated {
+    font-family: neon;
+    color: #426dfb;
+    font-size: 80px;
+    line-height: 9vw;
+    text-shadow: 0 0 3vw #2356ff;
+  }
+  .start-game {
+    font-size: 2rem;
+  }
+}
