@@ -122,8 +122,8 @@ class Board extends Component {
       return (
         <div className="Board-title">
           <div className="winner">
-            <span className="neon-orange">You</span>
-            <span className="neon-blue">WIN</span>
+            <span className="neon-teal-animated">You</span>
+            <span className="neon-blue-animated">WIN</span>
           </div>
         </div>
       );
